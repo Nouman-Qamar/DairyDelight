@@ -47,19 +47,19 @@
         </div>
     </section>
 
-    <section class="purchase-form-container" id="purchase-form-container">
+    <div class="purchase-form-container" id="purchase-form-container">
         <div class="purchase-form">
+            <button class="close-button" id="close-purchase-form">X</button>
             <h2>Purchase Form</h2>
             <form>
-                <input type="text" id="product-name" readonly>
                 <input type="text" placeholder="Your Name" required>
                 <input type="email" placeholder="Your Email" required>
-                <input type="text" placeholder="Shipping Address" required>
-                <button type="submit">Submit</button>
+                <input type="text" placeholder="Product Name" required>
+                <input type="number" placeholder="Quantity" required>
+                <button type="submit">Submit Purchase</button>
             </form>
-            <button class="close-button" onclick="hidePurchaseForm()">Close</button>
         </div>
-    </section>
+    </div>
 
     <footer>
         <p>&copy; 2024 DairyDelights. All rights reserved.</p>
@@ -67,13 +67,13 @@
 
     <script>
         function showPurchaseForm(productName) {
-            document.getElementById('product-name').value = productName;
-            document.getElementById('purchase-form-container').style.display = 'block';
+            document.getElementById('purchase-form-container').style.display = 'flex';
+            document.querySelector('.purchase-form input[placeholder="Product Name"]').value = productName;
         }
 
-        function hidePurchaseForm() {
+        document.getElementById('close-purchase-form').addEventListener('click', function() {
             document.getElementById('purchase-form-container').style.display = 'none';
-        }
+        });
     </script>
 </body>
 </html>
