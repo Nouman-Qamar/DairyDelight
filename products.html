@@ -16,8 +16,8 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="products.html">Products</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="login.html">Log-In</a></li>
-                    <li><a href="signup.html">Sign-Up</a></li>
+                    <li><a href="signin.html">Sign In</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
                 </ul>
             </nav>
         </div>
@@ -30,22 +30,50 @@
                 <img src="milk.jpg" alt="Milk">
                 <h3>Fresh Milk</h3>
                 <p>Pure and fresh milk from grass-fed cows.</p>
+                <button class="purchase-button" onclick="showPurchaseForm('Fresh Milk')">Purchase</button>
             </div>
             <div class="product-item">
                 <img src="cheese.jpg" alt="Cheese">
                 <h3>Organic Cheese</h3>
                 <p>Delicious cheese made from organic milk.</p>
+                <button class="purchase-button" onclick="showPurchaseForm('Organic Cheese')">Purchase</button>
             </div>
             <div class="product-item">
                 <img src="butter.jpg" alt="Butter">
                 <h3>Butter</h3>
                 <p>Rich and creamy butter for all your needs.</p>
+                <button class="purchase-button" onclick="showPurchaseForm('Butter')">Purchase</button>
             </div>
+        </div>
+    </section>
+
+    <section class="purchase-form-container" id="purchase-form-container">
+        <div class="purchase-form">
+            <h2>Purchase Form</h2>
+            <form>
+                <input type="text" id="product-name" readonly>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="text" placeholder="Shipping Address" required>
+                <button type="submit">Submit</button>
+            </form>
+            <button class="close-button" onclick="hidePurchaseForm()">Close</button>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2024 DairyDelights. All rights reserved.</p>
     </footer>
+
+    <script>
+        function showPurchaseForm(productName) {
+            document.getElementById('product-name').value = productName;
+            document.getElementById('purchase-form-container').style.display = 'block';
+        }
+
+        function hidePurchaseForm() {
+            document.getElementById('purchase-form-container').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
