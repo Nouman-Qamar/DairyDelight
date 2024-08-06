@@ -60,26 +60,6 @@
         nav ul li a:hover {
             color: var(--secondary-color);
         }
-        nav ul li ul {
-            display: none;
-            position: absolute;
-            top: 40px;
-            left: 0;
-            background-color: var(--primary-color);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        nav ul li:hover > ul {
-            display: block;
-        }
-        nav ul li ul li {
-            width: 200px;
-        }
-        nav ul li ul li a {
-            padding: 10px;
-            display: block;
-        }
         .search-bar {
             display: flex;
             align-items: center;
@@ -99,6 +79,30 @@
             color: white;
             cursor: pointer;
             margin-left: 5px;
+        }
+        .auth-links {
+            margin-left: 20px;
+        }
+        .auth-links a {
+            color: white;
+            text-decoration: none;
+            margin-right: 10px;
+            transition: color 0.3s;
+        }
+        .auth-links a:hover {
+            color: var(--secondary-color);
+        }
+        .purchase-button {
+            background-color: var(--accent-color);
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-left: 20px;
+        }
+        .purchase-button:hover {
+            background-color: var(--secondary-color);
         }
         .hero {
             position: relative;
@@ -265,6 +269,10 @@
                 <input type="text" placeholder="Search products...">
                 <button type="button"><i class="fas fa-search"></i></button>
             </div>
+            <div class="auth-links">
+                <a href="/login">Sign In</a> / <a href="/signup">Sign Up</a>
+            </div>
+            <a href="#cart" class="purchase-button">Cart</a>
         </div>
     </header>
 
@@ -280,9 +288,6 @@
         </div>
     </section>
 
-    <section id="Here's the continuation and completion of your HTML code, ensuring all sections are included:
-
-```html
     <section id="about" class="section about">
         <h2>About Us</h2>
         <p>At Adorable Dairy Products, we are dedicated to providing the highest quality dairy products to our customers. Our commitment to excellence and our passion for dairy ensure that you receive the freshest and creamiest products every time.</p>
@@ -292,24 +297,28 @@
         <h2>Our Products</h2>
         <div class="product-grid">
             <div class="product-item">
-                <img src="product1.jpg" alt="Product 1">
+                <img src="image.jpeg" alt="Product 1">
                 <h3>Fresh Milk</h3>
                 <p>Rich and creamy fresh milk, perfect for your daily needs.</p>
+                <a href="#purchase" class="cta-button">Buy Now</a>
             </div>
             <div class="product-item">
-                <img src="product2.jpg" alt="Product 2">
+                <img src="image1.jpeg" alt="Product 2">
                 <h3>Cheese</h3>
                 <p>Delicious cheese varieties made from the finest ingredients.</p>
+                <a href="#purchase" class="cta-button">Buy Now</a>
             </div>
             <div class="product-item">
-                <img src="product3.jpg" alt="Product 3">
+                <img src="image3.jpeg" alt="Product 3">
                 <h3>Yogurt</h3>
                 <p>Smooth and flavorful yogurt, ideal for a healthy snack.</p>
+                <a href="#purchase" class="cta-button">Buy Now</a>
             </div>
             <div class="product-item">
-                <img src="product4.jpg" alt="Product 4">
+                <img src="image4.jpeg" alt="Product 4">
                 <h3>Butter</h3>
                 <p>Rich and creamy butter for all your cooking and baking needs.</p>
+                <a href="#purchase" class="cta-button">Buy Now</a>
             </div>
         </div>
     </section>
