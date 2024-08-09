@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header('Location: login.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +15,7 @@
 </head>
 <body>
     <h1>Admin Panel</h1>
-    <form action="upload_product.php" method="post" enctype="multipart/form-data">
+    <form id="productForm" action="upload_product.php" method="post" enctype="multipart/form-data">
         <label for="name">Product Name:</label>
         <input type="text" id="name" name="name" required><br>
 
@@ -23,5 +30,49 @@
 
         <input type="submit" value="Add Product">
     </form>
+
+    <h2>Product List</h2>
+    <div id="productList"></div>
+
+    <script>
+        function loadProducts() {
+            fetch('get_products.php')
+            .then(response => response.json())
+            .then(products => {
+                const productList = document.getElementById('productList');
+                productList.innerHTML = '';
+                products.forEach(product => {
+                    const productDiv = document.createElement('div');
+                    productDiv.innerHTML = `
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <p>Price: $${product.price}</p>
+                        <img src="${product.image}" alt="${product.name}" style="max-width: 200px;">
+                    `;
+                    productList.appendChild(productDiv);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        document.getElementById('productForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+
+            fetch('upload_product.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+                this.reset();
+                loadProducts();
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+        loadProducts();
+    </script>
 </body>
 </html>
