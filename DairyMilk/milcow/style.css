@@ -1472,7 +1472,7 @@ section.footer
 .footer .box-container .box h1
 {
     color: #ffffff;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 600;
     padding-bottom: 1.5rem;
 }
@@ -1591,22 +1591,7 @@ section.footer
     {
         font-size: 2.5rem;
     }
-    .blog .header h1
-    {
-        font-size: 2.5rem;
-    }
-    .blog .header .btn a
-    {
-        padding: 10px 25px;
-    }
-    .blog .box-container .box .content a h1
-    {
-        font-size: 1rem;
-    }
-    .blog .box-container .box .content p
-    {
-        font-size: 0.8rem;
-    }
+    
     section.footer
     {
         padding: 4rem 5%;
@@ -1739,15 +1724,7 @@ section.footer
     {
         font-size: 2rem;
     }
-    .blog .header h1
-    {
-        font-size: 2rem;
-    }
-    .blog .header .btn a
-    {
-        font-size: 13px;
-        padding: 10px 20px;
-    }
+  
 }
 
 /* about.html css  */
@@ -1840,22 +1817,17 @@ main {
     padding: 40px 20px;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: #ffffff;
+    background-color: #eaeeef;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     margin-top: 20px;
 }
 
-.hero-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
 
 .about-content h1 {
     font-size: 2.5rem;
     color: #333;
+    text-align: center;
     margin-bottom: 20px;
     font-weight: 700;
 }
@@ -1863,13 +1835,15 @@ main {
 .about-content p {
     font-size: 1rem;
     color: #666;
+    text-align: center;
     line-height: 1.8;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
 }
 
 .aims-objectives h2 {
     font-size: 2rem;
     color: #333;
+    text-align: center;
     margin-bottom: 15px;
     font-weight: 600;
 }
@@ -1905,16 +1879,16 @@ main {
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #1c067c;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
-    color: #666;
+    color: #5739a4;
 }
 
 footer p {
     margin: 0;
     font-size: 0.9rem;
-    color: #666;
+    color: #000000;
 }
 
 
@@ -1934,7 +1908,7 @@ body, h1, h2, h3, p, ul, li, a, input, button {
 
 /* Header Styles */
 header {
-    background: #343a40; /* Dark background for the header */
+    background: #0d4076; /* Dark background for the header */
     color: #fff; /* White text color */
     padding: 1rem 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
