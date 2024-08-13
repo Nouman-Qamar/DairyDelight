@@ -621,6 +621,8 @@ section.about
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 600;
+    justify-content: center;
+    
 }
 
 .about .content .des h2
@@ -628,6 +630,7 @@ section.about
     color: #0F2945;
     font-size: 3rem;
     text-transform: uppercase;
+    justify-content: center;
 }
 
 .about .content .des h1
@@ -635,6 +638,8 @@ section.about
     color: #0F2945;
     font-size: 4rem;
     text-transform: uppercase;
+    justify-content: center;
+    
 }
 
 .about .content .des p
@@ -745,6 +750,11 @@ section.about
 {
     font-size: 1.2rem;
     font-weight: 200;
+}
+
+.aim-item:hover {
+    background-color: #311f81;
+    color: white;
 }
 
 .about .content .box-container .box3 i
