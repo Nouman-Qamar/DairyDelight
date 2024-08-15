@@ -31,6 +31,12 @@
           <img src="log.jpg" alt="" />
         </div>
 
+        <!-- Section Search -->
+        <section class="search">
+          <input type="text" id="searchInput" placeholder="Search..." />
+        </section>
+        <!-- Section Search End -->
+
         <ul class="menu">
           <li><a href="#">Home</a></li>
           <li><a href="about.html">About</a></li>
@@ -40,17 +46,6 @@
 
           <li><a href="contact.html">Contact</a></li>
         </ul>
-
-        <div class="search">
-          <button class="btn-search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-          <input
-            type="text"
-            class="input-search"
-            placeholder="Type tp Search..."
-          />
-        </div>
 
         <div class="call">
           <a href="#"><i class="fa-solid fa-phone"></i>+92 323 5663599</a>
@@ -82,15 +77,6 @@
         <!-- End -->
       </div>
     </section>
-    <!-- Section Navbar End -->
-    
-    <!-- Popup Modal -->
-    <div id="popup" class="popup">
-      <div class="popup-content">
-        <span class="close">&times;</span>
-        <p>Welcome to DairyDelight! Check out our latest offers!</p>
-      </div>
-    </div>
         <!-- End -->
       </div>
     </section>
@@ -583,7 +569,6 @@
             </div>
           </div>
 
-
           <div class="box">
             <div class="icon">
               <i class="fa-solid fa-clock"></i>
@@ -603,7 +588,8 @@
           </div>
           <p>
             Stay Fresh with Dairy Delight! <br />
-            Discover our premium dairy products and exclusive discounts. Shop now and experience quality like never before.
+            Discover our premium dairy products and exclusive discounts. Shop
+            now and experience quality like never before.
           </p>
 
           <div class="icons">
@@ -611,21 +597,22 @@
               <li>
                 <a href="#"><i class="fa-brands fa-facebook"></i></a>
               </li>
-              
+
               <li>
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
               </li>
-              
-              <li>
-                <a href="mailto:info@dairy-delight.com"><i class="fa-solid fa-envelope"></i></a>
-              </li>
-             
-              <li>
-             <a href="https://wa.me/1234567890" target="_blank">
-             <i class="fa-brands fa-whatsapp"></i>
-               </a>
-             </li>
 
+              <li>
+                <a href="mailto:info@dairy-delight.com"
+                  ><i class="fa-solid fa-envelope"></i
+                ></a>
+              </li>
+
+              <li>
+                <a href="https://wa.me/1234567890" target="_blank">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -644,8 +631,6 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-
-       
       </div>
     </section>
     <!-- Section Footer End -->
@@ -683,6 +668,30 @@
             spaceBetween: 40,
           },
         },
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const searchInput = document.getElementById("searchInput");
+
+        searchInput.addEventListener("input", () => {
+          const query = searchInput.value.toLowerCase();
+
+          // Select all sections to search within
+          const sections = document.querySelectorAll(
+            ".main, .about, .pricing, .choose, .testimonial, .discounts"
+          );
+
+          sections.forEach((section) => {
+            const content = section.textContent.toLowerCase();
+            if (content.includes(query)) {
+              section.style.display = ""; // Show section if it contains the search query
+            } else {
+              section.style.display = "none"; // Hide section if it does not contain the search query
+            }
+          });
+        });
       });
     </script>
   </body>
