@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var header = document.querySelector(".navbar");
 
     function updateStyles() {
-        var scrollPosition = window.pageXOffset || document.documentElement.scrollTop;
+        var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
         var isWideScreen = (window.innerWidth || document.documentElement.clientWidth) > 768;
         var scrollThreshold = 100;
 
@@ -40,27 +40,19 @@ document.addEventListener("DOMContentLoaded", function () {
     handleDropdownHover();
 });
 
-
-
-
 // Mobile Menu
-console.clear();
-
 const navExpand = document.querySelectorAll('.nav-expand');
 const backLink = `<li class="nav-item"><a class="nav-link nav-back-link" href="javascript:;"><i class="fa-solid fa-caret-left"></i></a></li>`;
 
 navExpand.forEach(item => {
-  item.querySelector('.nav-expand-content').insertAdjacentHTML('afterbegin', backLink);
-  item.querySelector('.nav-link').addEventListener('click', () => item.classList.toggle('active'));
-  item.querySelector('.nav-back-link').addEventListener('click', () => item.classList.remove('active'));
+    item.querySelector('.nav-expand-content').insertAdjacentHTML('afterbegin', backLink);
+    item.querySelector('.nav-link').addEventListener('click', () => item.classList.toggle('active'));
+    item.querySelector('.nav-back-link').addEventListener('click', () => item.classList.remove('active'));
 });
 
 document.getElementById('ham').addEventListener('click', () => document.body.classList.toggle('nav-is-toggled'));
 
-
-
-/purchase.html/
-
+// Purchase Popup
 function openPopup(productName, productPrice) {
     document.getElementById('productName').value = productName;
     document.getElementById('productPrice').value = productPrice;
