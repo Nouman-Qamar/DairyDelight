@@ -1,0 +1,81 @@
+document.addEventListener("DOMContentLoaded", function () {
+    var header = document.querySelector(".navbar");
+
+    function updateStyles() {
+        var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        var isWideScreen = (window.innerWidth || document.documentElement.clientWidth) > 768;
+        var scrollThreshold = 100;
+
+        header.classList.toggle("fixed", isWideScreen && scrollPosition > scrollThreshold);
+
+        document.querySelectorAll(".menu-bar ul li a").forEach(item => {
+            item.style.color = isWideScreen && scrollPosition > scrollThreshold ? "#243B2C" : "";
+            item.style.fontWeight = isWideScreen && scrollPosition > scrollThreshold ? "500" : "";
+        });
+
+        document.querySelectorAll(".fa-solid.fa-caret-down").forEach(icon => {
+            icon.style.color = isWideScreen && scrollPosition > scrollThreshold ? "#243B2C" : "";
+        });
+
+        document.querySelectorAll(".fa-solid.fa-magnifying-glass").forEach(icon => {
+            icon.style.color = isWideScreen && scrollPosition > scrollThreshold ? "#fff" : "";
+        });
+
+        var logo = document.querySelector(".logo");
+        if (logo) {
+            logo.style.cssText = isWideScreen && scrollPosition > scrollThreshold ? "background: #243B2C; padding: 5px 10px; border-radius: 50px 0px 50px 50px;" : "";
+        }
+    }
+
+    function handleDropdownHover() {
+        document.querySelectorAll(".dropdown-menu ul li a").forEach(item => {
+            item.addEventListener("mouseover", () => item.style.color = "#fff");
+            item.addEventListener("mouseout", () => item.style.color = "");
+        });
+    }    
+
+    updateStyles();
+    window.addEventListener("resize", updateStyles);
+    window.addEventListener("scroll", updateStyles);
+    handleDropdownHover();
+});
+
+// Mobile Menu
+const navExpand = document.querySelectorAll('.nav-expand');
+const backLink = `<li class="nav-item"><a class="nav-link nav-back-link" href="javascript:;"><i class="fa-solid fa-caret-left"></i></a></li>`;
+
+navExpand.forEach(item => {
+    item.querySelector('.nav-expand-content').insertAdjacentHTML('afterbegin', backLink);
+    item.querySelector('.nav-link').addEventListener('click', () => item.classList.toggle('active'));
+    item.querySelector('.nav-back-link').addEventListener('click', () => item.classList.remove('active'));
+});
+
+document.getElementById('ham').addEventListener('click', () => document.body.classList.toggle('nav-is-toggled'));
+
+// Purchase Popup
+function openPopup(productName, productPrice) {
+    document.getElementById('productName').value = productName;
+    document.getElementById('productPrice').value = productPrice;
+    document.getElementById('orderPopup').style.display = 'block';
+}
+
+function closePopup() {
+    document.getElementById('orderPopup').style.display = 'none';
+}
+
+const orderForm = document.getElementById('orderForm');
+if (orderForm) {
+    orderForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Here you would typically send the form data to a server
+        alert('Order placed successfully!');
+        closePopup();
+    });
+}
+
+// Close the popup if the user clicks outside of it
+window.onclick = function(event) {
+    if (event.target == document.getElementById('orderPopup')) {
+        closePopup();
+    }
+}

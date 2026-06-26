@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - DairyDelights</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <section class="navbar">
+      <div class="menu-bar">
+        <div class="logo">
+          <img src="assets/images/log.jpg" alt="DairyDelight logo" />
+        </div>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="purchase.html">Product</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="call">
+          <a href="tel:+15552347890"><i class="fa-solid fa-phone"></i>+1 (555) 234-7890</a>
+        </div>
+        <header class="nav-top">
+          <span class="hamburger material-icons" id="ham">
+            <i class="fa-solid fa-bars"></i>
+          </span>
+        </header>
+        <nav class="nav-drill" id="sidebarMenu">
+          <ul class="nav-items nav-level-1">
+            <li class="nav-item"><a class="nav-link" href="index.html"> Menu </a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html"> About </a></li>
+            <li class="nav-item"><a class="nav-link" href="purchase.html"> Products </a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html"> Contact </a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <main>
+        <div class="products-container">
+            <h1>Our Products</h1>
+            <div class="product-search-bar">
+                <input type="text" id="search-input" class="input-search" placeholder="Search products...">
+                <button class="btn-search"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" id="product-cow-milk">
+                    <img src="assets/images/khoya.jpg" alt="Khoya" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Khoya</h3>
+                        <p class="product-price">Rs1500 / 1kg</p>
+                        <button class="add-to-cart" onclick="openPopup('Khoya', 1500)">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-card" id="product-butter">
+                    <img src="assets/images/butter.jpg" alt="Butter" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Butter</h3>
+                        <p class="product-price">Rs1800 / 1Kg</p>
+                        <button class="add-to-cart" onclick="openPopup('Butter', 1800)">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-card" id="product-ghee">
+                    <img src="assets/images/ghee.jpg" alt="Ghee" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Ghee</h3>
+                        <p class="product-price">Rs2500 / 1Kg</p>
+                        <button class="add-to-cart" onclick="openPopup('Ghee', 2500)">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Order Popup -->
+    <div id="orderPopup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>Order Details</h2>
+    
+            <!-- Start of form with Basin integration -->
+            <form action="https://usebasin.com/f/627e2812e12d" method="POST">
+                <input type="hidden" id="productName" name="productName">
+                <input type="hidden" id="productPrice" name="productPrice">
+                
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Delivery Address:</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <button type="submit" class="submit-order">Place Order</button>
+            </form>
+            <!-- End of form -->
+            
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 DairyDelight. All Rights Reserved.</p>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // JavaScript for search functionality
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchInput = document.querySelector("#search-input");
+            const productCards = document.querySelectorAll(".product-card");
+
+            searchInput.addEventListener("input", function() {
+                const query = searchInput.value.toLowerCase();
+
+                productCards.forEach(card => {
+                    const title = card.querySelector(".product-title").textContent.toLowerCase();
+                    const price = card.querySelector(".product-price").textContent.toLowerCase();
+                    
+                    if (title.includes(query) || price.includes(query)) {
+                        card.style.display = "";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+            });
+        });
+
+        // JavaScript for order popup
+        function openPopup(productName, productPrice) {
+            document.getElementById('productName').value = productName;
+            document.getElementById('productPrice').value = productPrice;
+            document.getElementById('orderPopup').style.display = 'block';
+        }
+        
+        function closePopup() {
+            document.getElementById('orderPopup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
