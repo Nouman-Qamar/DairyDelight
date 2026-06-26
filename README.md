@@ -2,7 +2,7 @@
 
 A 4-page company website for a dairy products brand — home, about, product catalog (with cart popup + order form), and contact. Modernized with a warm sage-green + honey color palette, refreshed typography, and several real bug fixes.
 
-🔗 **Live Demo:** https://nouman-qamar.github.io/DairyDelight/
+🔗 **Live Demo:** https://nouman-qamar.github.io/DairyDelight/purchase.html
 
 ## Pages
 - **Home** (`index.html`) — hero with video modal, about teaser, pricing, testimonials, discounts banner
