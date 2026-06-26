@@ -1,6 +1,6 @@
 # DairyDelight — Dairy Products Company Website
 
-A 4-page company website for a dairy products brand — home, about, product catalog (with cart popup + order form), and contact. Modernized with a warm sage-green + honey color palette, refreshed typography, and several real bug fixes.
+A 4-page company website for a dairy products brand  home, about, product catalog (with cart popup + order form), and contact. Modernized with a warm sage-green + honey color palette, refreshed typography, and several real bug fixes.
 
 🔗 **Live Demo:** https://nouman-qamar.github.io/DairyDelight/purchase.html
 
